@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { useWanderStore } from './stores/useWanderStore'
+import { useWanderStore } from '../stores/useWanderStore'
 
 export default {
   name: 'App',
