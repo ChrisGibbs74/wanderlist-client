@@ -14,7 +14,7 @@ export const useWanderStore = defineStore('wander', {
 
   actions: {
     async register(email, password) {
-      const response = await fetch('http://localhost:3001/api/auth/register', {
+      const response = await fetch('https://wanderlist-server-production.up.railway.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -25,7 +25,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async login(email, password) {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      const response = await fetch('https://wanderlist-server-production.up.railway.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -48,7 +48,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async fetchVisits() {
-      const response = await fetch('http://localhost:3001/api/visits', {
+      const response = await fetch('https://wanderlist-server-production.up.railway.app', {
         headers: { 'Authorization': `Bearer ${this.token}` }
       })
       const data = await response.json()
@@ -57,7 +57,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async addVisit(visitData) {
-      const response = await fetch('http://localhost:3001/api/visits', {
+      const response = await fetch('https://wanderlist-server-production.up.railway.app', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async updateVisit(id, visitData) {
-      const response = await fetch(`http://localhost:3001/api/visits/${id}`, {
+      const response = await fetch(`https://wanderlist-server-production.up.railway.app}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async deleteVisit(id) {
-      const response = await fetch(`http://localhost:3001/api/visits/${id}`, {
+      const response = await fetch(`https://wanderlist-server-production.up.railway.app`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${this.token}` }
       })
@@ -97,7 +97,7 @@ export const useWanderStore = defineStore('wander', {
     },
 
     async fetchLeaderboard() {
-      const response = await fetch('http://localhost:3001/api/leaderboard')
+      const response = await fetch('https://wanderlist-server-production.up.railway.app')
       const data = await response.json()
       if (!response.ok) throw new Error(data.error)
       this.leaderboard = data
